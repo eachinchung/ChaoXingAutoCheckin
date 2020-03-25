@@ -106,7 +106,7 @@ class AutoSign:
             # 检测cookies是否有效
             r = self.session.get('http://i.mooc.chaoxing.com/app/myapps.shtml', allow_redirects=False)
             if r.status_code != 200:
-                print(f"{self.user['account']['name']} cookies已失效，重新获取中")
+                print(f"{self.name} cookies已失效，重新获取中")
                 self.login()
 
     def get_all_class_id(self):
@@ -370,7 +370,7 @@ def heartbeat():
         for user in user_list:
             checkin_thread = Thread(target=checkin, args=[user])
             checkin_thread.start()
-            sleep(15)
+            sleep(60)
 
 
 if __name__ == '__main__':
